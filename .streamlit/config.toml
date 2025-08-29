@@ -1,0 +1,9 @@
+[project]
+project_name = "ENERSCORE MOUVEMENT"
+expo_space_name = "magasins"
+
+[tables]
+table_carte_identite="donnees_base_processed_ml"
+table_stats_consos="consos_monthly_avg_stats"
+table_radar="consos_radar"
+table_consos_monthly_avg="consos_monthly_avg"
