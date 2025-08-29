@@ -28,6 +28,7 @@ st.set_page_config(layout="wide", page_title=project_name)
 df_carte_identite = dl.load_carte_identite(expo_space_name + "." + config["tables"]["table_carte_identite"])
 df_consos_stats = dl.load_stats_consos(expo_space_name + "." + config["tables"]["table_stats_consos"])
 df_radar = dl.load_consos_data_all_codes(expo_space_name + "." + config["tables"]["table_radar"])
+df_tendances = dl.load_tendances(expo_space_name + "." + config["tables"]["table_consos_elec_gaz_mois_ready"])
 
 
 st.markdown("""<style>.css-o18uir.e16nr0p33 {margin-top: -275px;}</style>""", unsafe_allow_html=True)
@@ -68,8 +69,8 @@ with tab_conso_hebdo_past:
     conso_hebdo_past.plot_conso_hebdo(df_consos_stats, df_carte_identite)
 
 with tab_tendances:
-    tendances.plot_tendances(df_carte_identite)
+    tendances.plot_tendances(df_carte_identite, df_tendances)
     
 with tab_tendances_sca:
-    tendances_sca.plot_tendances_sca(df_carte_identite)
+    tendances_sca.plot_tendances_sca(df_carte_identite, df_tendances)
     

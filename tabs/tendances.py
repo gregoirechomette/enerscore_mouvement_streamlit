@@ -13,13 +13,13 @@ from math import isnan
 
 # Create a function to plot the evolution of the consumption of a store in a monthly basis
 
-def plot_tendances(df_carte_identite):
+def plot_tendances(df_carte_identite, df_tendances):
     
     st.markdown("<p style='text-align: center;'>  Évolution de la consommation mensuelle moyenne des magasins en éléctricité au cours des 4 dernières années. Possibilité de choisir une SCA et une activité en particulier.</p>", unsafe_allow_html=True)
     st.text("")
     
     # Retrive the information about the magasin
-    df_tendances = pd.read_csv('data/consos_elec_gaz_mois_ready.csv')
+    # df_tendances = pd.read_csv('data/consos_elec_gaz_mois_ready.csv')
     df_tendances['code_panonceau'] = df_tendances['code_panonceau'].astype(str).str.zfill(4)
     df_tendances['code_unique'] = df_tendances['code_panonceau'] + '_' + df_tendances['activite']
     df_tendances = df_tendances.merge(df_carte_identite[['code_unique', 'centrale']], on='code_unique', how='left')
